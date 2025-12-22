@@ -29,14 +29,9 @@ Example:
 
 ## 🛠 Tech Stack
 
-- **Frontend:** HTML / CSS / JavaScript *(or React if used)*
-- **Backend:** Node.js / Express *(optional)*
-- **Database:** MongoDB / MySQL *(optional)*
+- **Frontend:** React
+- **Backend:** Node.js 
+- **Database:** MongoDB 
 - **Version Control:** Git & GitHub
 
-*(Edit these according to your actual setup.)*
-
----
-
-## 📦 Installation & Setup
 
