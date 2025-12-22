@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://equalsplit-backend-89.onrender.com/api",   // backend URL
+  baseURL: "https://equisplit.anandgoyal.online",   // backend URL
 });
 
 api.interceptors.request.use((config) => {
