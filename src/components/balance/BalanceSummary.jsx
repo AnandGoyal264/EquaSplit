@@ -33,7 +33,7 @@ const BalanceSummary = () => {
         <div className="balance-card you-owe-card">
           <div className="card-header">
             <div className="card-icon owe-icon">💸</div>
-            <h3 className="card-title">You Owe</h3>
+            <h3 className="card-title">You Need to Pay </h3>
           </div>
 
           <div className="card-content">
@@ -66,7 +66,7 @@ const BalanceSummary = () => {
         <div className="balance-card you-are-owed-card">
           <div className="card-header">
             <div className="card-icon owed-icon">💰</div>
-            <h3 className="card-title">You Are Owed</h3>
+            <h3 className="card-title">You Will Recieve </h3>
           </div>
 
           <div className="card-content">
