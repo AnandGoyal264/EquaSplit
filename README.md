@@ -60,33 +60,117 @@ EqualSplit is a **full‑stack MERN application** that helps users **split group
 ## 📁 Project Structure
 
 ### Backend
-backend/
+ackend/
 │── src/
 │ ├── controllers/
+│ │ ├── auth.controller.js
+│ │ ├── group.controller.js
+│ │ ├── expense.controller.js
+│ │ └── balance.controller.js
+│ │
 │ ├── routes/
+│ │ ├── auth.routes.js
+│ │ ├── group.routes.js
+│ │ ├── expense.routes.js
+│ │ └── balance.routes.js
+│ │
 │ ├── models/
+│ │ ├── User.model.js
+│ │ ├── Group.model.js
+│ │ ├── Expense.model.js
+│ │ └── Balance.model.js
+│ │
 │ ├── services/
+│ │ ├── split.service.js
+│ │ └── balance.service.js
+│ │
 │ ├── middlewares/
+│ │ └── auth.middleware.js
+│ │
 │ ├── app.js
 │ └── server.js
+│
 │── .env
 │── package.json
 
-### Frontend
 
-frontend/
-│── public/
-│── src/
-│ ├── api/
-│ ├── components/
-│ │ ├── auth/
-│ │ ├── group/
-│ │ ├── expense/
-│ │ └── balance/
-│ ├── pages/
-│ ├── context/
-│ ├── hooks/
-│ └── main.jsx
+---
+
+## 🔐 Authentication Flow
+
+- JWT‑based authentication
+- Token generated on **login / register**
+- Token validated using middleware on protected routes
+
+### Auth Routes
+
+---
+
+## 👥 Group Management APIs
+
+| Method | Endpoint | Description |
+|------|---------|------------|
+| POST | `/api/groups` | Create a new group |
+| GET | `/api/groups` | Get all groups of logged‑in user |
+| GET | `/api/groups/:groupId` | Get group details |
+| POST | `/api/groups/:groupId/add-member` | Add member to group |
+
+---
+
+## 💸 Expense Management APIs
+
+Supports **Equal**, **Exact**, and **Percentage** splits.
+
+| Method | Endpoint | Description |
+|------|---------|------------|
+| POST | `/api/expenses` | Add expense to group |
+
+### Split Types
+- `EQUAL`
+- `EXACT`
+- `PERCENT`
+
+---
+
+## 📊 Balance & Settlement APIs
+
+| Method | Endpoint | Description |
+|------|---------|------------|
+| GET | `/api/balances` | View balances (owe / owed) |
+| POST | `/api/balances/settle` | Settle balance |
+
+---
+
+## 🧠 Balance Logic (Ledger System)
+
+- Every expense creates ledger entries
+- Balances are stored as:
+  - `fromUser` → owes money
+  - `toUser` → is owed money
+- Supports partial & full settlements
+
+---
+
+🌐 CORS Configuration
+Backend allows requests from:
+
+Local development
+
+Vercel deployment
+
+Custom domain
+
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://equisplit-puce.vercel.app",
+    "https://equisplit.anandgoyal.online"
+  ]
+}));
+
+### Environment Variables (`.env`)
+
+
 ---
 
 ## ⚙️ Environment Variables
@@ -96,111 +180,4 @@ frontend/
 PORT=5000
 MONGO_URI=your_mongodb_atlas_url
 JWT_SECRET=your_jwt_secret
-FRONTEND_URL=https://equisplit-puce.vercel.app/login
-
-│── index.html
-│── package.json
-│── vercel.json
-
-▶️ Running the Project Locally
-1️⃣ Clone Repository
-git clone https://github.com/your-username/equal-split.git
-cd equal-split
-2️⃣ Backend Setup
-cd backend
-npm install
-npm run dev
-Backend runs on:
-
-http://localhost:5000
-3️⃣ Frontend Setup
-cd frontend
-npm install
-npm run dev
-Frontend runs on:
-
-http://localhost:5173
-🔑 API Endpoints
-Authentication
-POST   /api/auth/register
-POST   /api/auth/login
-Groups
-POST   /api/groups
-GET    /api/groups
-GET    /api/groups/:groupId
-POST   /api/groups/:groupId/add-member
-Expenses
-POST   /api/expenses
-Balances
-GET    /api/balances
-POST   /api/balances/settle
-🧪 Example Expense Payloads
-Equal Split
-{
-  "groupId": "groupId",
-  "amount": 900,
-  "description": "Dinner",
-  "splitType": "EQUAL",
-  "splits": []
-}
-Exact Split
-{
-  "groupId": "groupId",
-  "amount": 900,
-  "description": "Dinner",
-  "splitType": "EXACT",
-  "splits": [
-    { "userId": "u1", "amount": 300 },
-    { "userId": "u2", "amount": 600 }
-  ]
-}
-Percentage Split
-{
-  "groupId": "groupId",
-  "amount": 900,
-  "description": "Dinner",
-  "splitType": "PERCENT",
-  "splits": [
-    { "userId": "u1", "percent": 50 },
-    { "userId": "u2", "percent": 50 }
-  ]
-}
-🌍 Deployment Notes
-CORS Configuration (Backend)
-app.use(cors({
-  origin: [
-    "https://your-vercel-domain.vercel.app",
-    "https://your-custom-domain.com"
-  ]
-}));
-SPA Routing Fix (Vercel)
-vercel.json
-
-{
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ]
-}
-🧠 Key Concepts
-Owe → Money you need to pay
-
-Owed → Money others need to pay you
-
-Ledger‑based balance calculation
-
-Secure JWT authentication
-
-📌 Future Improvements
-Better UI (Material UI / Tailwind)
-
-Expense history per group
-
-Notifications
-
-Real‑time updates (Socket.io)
-
-Charts & analytics
-
-👨‍💻 Author
-Anand Goyal
-
+FRONTEND_URL=https://your-frontend-domain.com

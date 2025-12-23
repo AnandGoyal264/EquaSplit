@@ -4,6 +4,8 @@ import api from "../api/axios";
 import AddExpenseModal from "../components/expense/AddExpenseModal";
 import AddMemberModal from "../components/group/AddMemberModal";
 import GroupMember from "../components/group/GroupMember";
+import ExpenseList from "../components/expense/ExpenseList";
+
 import './GroupPage.css';
 
 
@@ -52,6 +54,10 @@ export default function GroupPage() {
             </div>
           )}
         </div>
+        <div className="expenses-section">
+  <ExpenseList groupId={group._id} />
+</div>
+
       </div>
     </div>
   );
