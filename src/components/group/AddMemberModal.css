@@ -1,0 +1,110 @@
+/* AddMemberModal Styles */
+
+.add-member-modal button:first-child {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-member-modal button:first-child:hover {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+/* Modal Container */
+.add-member-modal-container {
+  background: white;
+  border: 1px solid #e5e7eb !important;
+  padding: 24px !important;
+  margin-top: 12px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+}
+
+.add-member-modal-container h4 {
+  margin: 0 0 20px 0;
+  color: #1f2937;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Form Styling */
+.add-member-modal-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.add-member-modal-container input[type="email"],
+.add-member-modal-container input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.add-member-modal-container input:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.add-member-modal-container input::placeholder {
+  color: #9ca3af;
+}
+
+/* Hide <br> tags */
+.add-member-modal-container br {
+  display: none;
+}
+
+/* Button Group */
+.add-member-modal-container form > button {
+  width: fit-content;
+}
+
+/* Submit Button */
+.add-member-modal-container button[type="submit"] {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-member-modal-container button[type="submit"]:hover {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+/* Close Button */
+.add-member-modal-container button[type="button"] {
+  background: #6b7280;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-left: 8px;
+}
+
+.add-member-modal-container button[type="button"]:hover {
+  background: #4b5563;
+  transform: translateY(-1px);
+}

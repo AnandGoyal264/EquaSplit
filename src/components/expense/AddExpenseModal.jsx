@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../../api/axios";
+import "./AddExpenseModal.css";
 
 const AddExpenseModal = ({ group, onAdded }) => {
   const [show, setShow] = useState(false);
@@ -57,67 +58,65 @@ const AddExpenseModal = ({ group, onAdded }) => {
   };
 
   return (
-    <>
-      <button onClick={() => setShow(true)}>Add Expense</button>
+  <div className="add-expense-modal">
+    <button onClick={() => setShow(true)}>Add Expense</button>
 
-      {show && (
-        <div style={{ border: "1px solid black", padding: "1rem", marginTop: "1rem" }}>
-          <h3>Add Expense</h3>
+    {show && (
+      <div className="add-expense-modal-container" style={{ border: "1px solid black", padding: "1rem", marginTop: "1rem" }}>
+        <h3>Add Expense</h3>
 
-          <form onSubmit={handleAdd}>
-            <input
-              placeholder="Description"
-              onChange={e => setDescription(e.target.value)}
-            />
-            <br />
+        <form onSubmit={handleAdd}>
+          <input
+            placeholder="Description"
+            onChange={e => setDescription(e.target.value)}
+          />
 
-            <input
-              placeholder="Amount"
-              type="number"
-              onChange={e => setAmount(e.target.value)}
-            />
-            <br />
+          <input
+            placeholder="Amount"
+            type="number"
+            onChange={e => setAmount(e.target.value)}
+          />
 
-            <select onChange={e => setSplitType(e.target.value)}>
-              <option value="EQUAL">Equal Split</option>
-              <option value="EXACT">Exact Amount</option>
-              <option value="PERCENT">Percentage</option>
-            </select>
+          <select onChange={e => setSplitType(e.target.value)}>
+            <option value="EQUAL">Equal Split</option>
+            <option value="EXACT">Exact Amount</option>
+            <option value="PERCENT">Percentage</option>
+          </select>
 
-            <br />
+          {splitType !== "EQUAL" &&
+            splits.map((s, i) => (
+              <div key={i} className="split-item">
+                <span>{group.members[i].name}</span>
+                {splitType === "EXACT" && (
+                  <input
+                    type="number"
+                    placeholder="Amount"
+                    onChange={(e) =>
+                      updateSplit(i, "amount", parseFloat(e.target.value))
+                    }
+                  />
+                )}
+                {splitType === "PERCENT" && (
+                  <input
+                    type="number"
+                    placeholder="%"
+                    onChange={(e) =>
+                      updateSplit(i, "percent", parseFloat(e.target.value))
+                    }
+                  />
+                )}
+              </div>
+            ))}
 
-            {splitType !== "EQUAL" &&
-              splits.map((s, i) => (
-                <div key={i}>
-                  <span>{group.members[i].name}</span>
-                  {splitType === "EXACT" && (
-                    <input
-                      type="number"
-                      placeholder="Amount"
-                      onChange={(e) =>
-                        updateSplit(i, "amount", parseFloat(e.target.value))
-                      }
-                    />
-                  )}
-                  {splitType === "PERCENT" && (
-                    <input
-                      type="number"
-                      placeholder="%"
-                      onChange={(e) =>
-                        updateSplit(i, "percent", parseFloat(e.target.value))
-                      }
-                    />
-                  )}
-                </div>
-              ))}
-
+          <div>
             <button type="submit">Submit</button>
             <button onClick={() => setShow(false)} type="button">Close</button>
-          </form>
-        </div>
-      )}
-    </>
-  );
+          </div>
+        </form>
+      </div>
+    )}
+  </div>
+);
 };
 
 export default AddExpenseModal;

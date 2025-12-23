@@ -1,0 +1,151 @@
+/* AddExpenseModal Styles */
+
+.add-expense-modal button:first-child {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-expense-modal button:first-child:hover {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+/* Modal Container */
+.add-expense-modal-container {
+  background: white;
+  border: 1px solid #e5e7eb !important;
+  padding: 24px !important;
+  margin-top: 12px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+}
+
+.add-expense-modal-container h3 {
+  margin: 0 0 20px 0;
+  color: #1f2937;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Form Styling */
+.add-expense-modal-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.add-expense-modal-container input[type="text"],
+.add-expense-modal-container input[type="number"],
+.add-expense-modal-container input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.add-expense-modal-container input:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.add-expense-modal-container input::placeholder {
+  color: #9ca3af;
+}
+
+/* Select Dropdown */
+.add-expense-modal-container select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.add-expense-modal-container select:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Hide <br> tags */
+.add-expense-modal-container br {
+  display: none;
+}
+
+/* Split Items */
+.split-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #f9fafb;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.split-item span {
+  font-weight: 500;
+  color: #1f2937;
+  min-width: 120px;
+}
+
+.split-item input {
+  flex: 1;
+  margin: 0 !important;
+}
+
+/* Button Group */
+.add-expense-modal-container form > button {
+  width: fit-content;
+}
+
+/* Submit Button */
+.add-expense-modal-container button[type="submit"] {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-expense-modal-container button[type="submit"]:hover {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+/* Close Button */
+.add-expense-modal-container button[type="button"] {
+  background: #6b7280;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-left: 8px;
+}
+
+.add-expense-modal-container button[type="button"]:hover {
+  background: #4b5563;
+  transform: translateY(-1px);
+}

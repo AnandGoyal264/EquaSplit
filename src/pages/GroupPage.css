@@ -1,0 +1,140 @@
+/* GroupPage Styles */
+
+.group-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+  min-height: 100vh;
+}
+
+/* Header Section */
+.group-page-header {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.group-page-header h2 {
+  margin: 0 0 20px 0;
+  font-size: 32px;
+  font-weight: 700;
+  color: #1f2937;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Action Buttons Container */
+.group-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Members Section */
+.members-section {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.members-section h3 {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.members-section h3::before {
+  content: "👥";
+  font-size: 24px;
+}
+
+.members-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+}
+
+.loading-container p {
+  font-size: 18px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .group-page {
+    padding: 20px 15px;
+  }
+
+  .group-page-header {
+    padding: 20px;
+  }
+
+  .group-page-header h2 {
+    font-size: 24px;
+  }
+
+  .members-section {
+    padding: 20px;
+  }
+
+  .group-actions {
+    flex-direction: column;
+  }
+
+  .group-actions button {
+    width: 100%;
+  }
+}
+
+/* Empty State */
+.empty-members {
+  text-align: center;
+  padding: 40px 20px;
+  color: #9ca3af;
+}
+
+.empty-members p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.group-page-header,
+.members-section {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.members-section {
+  animation-delay: 0.1s;
+}

@@ -4,6 +4,8 @@ import api from "../api/axios";
 import AddExpenseModal from "../components/expense/AddExpenseModal";
 import AddMemberModal from "../components/group/AddMemberModal";
 import GroupMember from "../components/group/GroupMember";
+import './GroupPage.css';
+
 
 
 
@@ -17,29 +19,40 @@ export default function GroupPage() {
       .catch(err => console.log(err));
   }, [id]);
 
-  if (!group) return <p>Loading...</p>;
+  if (!group) return (
+    <div className="loading-container">
+      <p>Loading...</p>
+    </div>
+  );
 
   return (
-    <div>
-      <h2>{group.name}</h2>
-      <AddExpenseModal
-  group={group}
-  onAdded={() => window.location.reload()}
-/>
-<AddMemberModal
-  groupId={group._id}
-  onAdded={() => window.location.reload()}
-/>
+    <div className="group-page">
+      <div className="group-page-header">
+        <h2>{group.name}</h2>
+        <div className="group-actions">
+          <AddExpenseModal
+            group={group}
+            onAdded={() => window.location.reload()}
+          />
+          <AddMemberModal
+            groupId={group._id}
+            onAdded={() => window.location.reload()}
+          />
+        </div>
+      </div>
 
-<h3>Members</h3>
-{group.members.map(m => <GroupMember key={m._id} member={m} />)}
-
-      <h3>Members</h3>
-      <ul>
-        {group.members.map(m => (
-          <li key={m._id}>{m.name} ({m.email})</li>
-        ))}
-      </ul>
+      <div className="members-section">
+        <h3>Members</h3>
+        <div className="members-list">
+          {group.members.length > 0 ? (
+            group.members.map(m => <GroupMember key={m._id} member={m} />)
+          ) : (
+            <div className="empty-members">
+              <p>No members yet. Add your first member!</p>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

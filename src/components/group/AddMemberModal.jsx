@@ -1,6 +1,6 @@
 import { useState } from "react";
 import api from "../../api/axios";
-
+import "./AddMemberModal.css";
 const AddMemberModal = ({ groupId, onAdded }) => {
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState("");
@@ -27,10 +27,11 @@ const AddMemberModal = ({ groupId, onAdded }) => {
 
   return (
     <>
+    <div className="add-member-modal">
       <button onClick={() => setShow(true)}>Add Member</button>
 
       {show && (
-        <div style={{ border: "1px solid #999", padding: "1rem", marginTop: ".5rem" }}>
+        <div className="add-member-modal-container" style={{ border: "1px solid #999", padding: "1rem", marginTop: ".5rem" }}>
           <h4>Add Member</h4>
           <form onSubmit={handleAdd}>
             <input
@@ -44,6 +45,7 @@ const AddMemberModal = ({ groupId, onAdded }) => {
           </form>
         </div>
       )}
+      </div>
     </>
   );
 };
