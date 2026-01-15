@@ -30,7 +30,7 @@ const Login = () => {
           <div className="login-form-wrapper">
             <div className="login-header">
               <h1 className="login-title">Expense Tracking Platform</h1>
-              <p className="login-subtitle">Sign in to access your personal Expense tracking website </p>
+              <p className="login-subtitle">Sign in to access your personal Expense tracking at your finger tip </p>
             </div>
             
             <form onSubmit={submit} className="login-form">
@@ -39,7 +39,7 @@ const Login = () => {
                 <input
                   id="email"
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="Enter your email 'purush@gmail.com'"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   required
@@ -51,7 +51,7 @@ const Login = () => {
                 <input
                   id="password"
                   type="password"
-                  placeholder="Enter your password"
+                  placeholder="Enter your password 'Anand@123'"
                   value={form.password}
                   onChange={(e) => setForm({ ...form, password: e.target.value })}
                   required
